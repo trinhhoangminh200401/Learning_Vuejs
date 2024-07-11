@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeMount, onBeforeUnmount, ref, onUnmounted, onUpdated, onBeforeUpdate, watch, reactive } from 'vue';
+import { onMounted, onBeforeMount, onBeforeUnmount, ref, onUnmounted, onUpdated, onBeforeUpdate, watch, reactive, watchEffect } from 'vue';
 
 const user = reactive({
 
@@ -46,6 +46,12 @@ const user = reactive({
 
 const x = ref(0)
 const y = ref(0)
+watch([x, y], ([newUser, oldUser]) => {
+      console.log('Giá trị sau n ::',newUser,oldUser)
+
+},{immediate:true})
+
+
 watch(() => x.value + y.value, async (sum) => {
   console.log('Sum x + y:',sum)
 })
@@ -66,10 +72,16 @@ watch(user,
   (newUser,oldUser) => {
     console.log(`User: newUser ${JSON.stringify(newUser)},oldUser ${JSON.stringify(oldUser)}`)
   }
-,{deep:true,immediate:true})
+  , { deep: true, immediate: true })
+watchEffect(() => (
+    console.log('Giá trị sau n ',x.value,y.value)
+
+))
 const changeAge = () => {
   user.class.student++
 }
+
+
 /* ---------------------------------- watch ----------------*/
 
 // const question = ref('')
