@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import HomeView from './views/HomeView.vue';
 import AboutView from './views/AboutView.vue';
+import CheckView from './views/CheckView.vue';
+import ParentView from './views/ParentView.vue';
 // const isActive = ref(true)
 // const newTodo = ref('')
 // const age = ref(0)
@@ -43,7 +45,7 @@ import AboutView from './views/AboutView.vue';
       <li v-for="todo in todos" :key="todo.id">{{ todo.name }}</li>
     </ul> -->
     </div>
-  <AboutView />
+   <ParentView />
 </template>
 
 <style>
