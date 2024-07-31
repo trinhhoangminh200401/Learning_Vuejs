@@ -1,9 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import HomeView from './views/HomeView.vue';
-import AboutView from './views/AboutView.vue';
-import CheckView from './views/CheckView.vue';
-import ParentView from './views/ParentView.vue';
+import HomeView from './views/HomeView.vue'
+import AboutView from './views/AboutView.vue'
+import CheckView from './views/CheckView.vue'
+import ParentView from './views/ParentView.vue'
+import RefView from './views/RefView.vue'
 // const isActive = ref(true)
 // const newTodo = ref('')
 // const age = ref(0)
@@ -36,6 +37,10 @@ import ParentView from './views/ParentView.vue';
 //     newTodo.value = ''
 //   }
 // }
+const isActive = ref(false)
+const handleCLickButton = () => {
+  isActive.value = !isActive.value
+}
 </script>
 
 <template>
@@ -44,8 +49,11 @@ import ParentView from './views/ParentView.vue';
     <ul>
       <li v-for="todo in todos" :key="todo.id">{{ todo.name }}</li>
     </ul> -->
-    </div>
-   <ParentView />
+  </div>
+  <button @click="handleCLickButton">Toggle</button>
+  <RefView firstName="minh" lastName="nnn" :isActive="isActive" />
+
+  <ParentView />
 </template>
 
 <style>
@@ -58,7 +66,7 @@ import ParentView from './views/ParentView.vue';
   cursor: pointer;
   &:hover {
     background: #722771;
-  }
+  } 
 }
 .active {
   background: green;

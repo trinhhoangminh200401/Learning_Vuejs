@@ -37,7 +37,7 @@ const select = ref('A')
 
     <p>Select :{{ select }}</p>
     <select v-model="select">
-      <option value="A" >A</option>
+      <option value="A">A</option>
       <option value="B">B</option>
 
       <option value="C">C</option>

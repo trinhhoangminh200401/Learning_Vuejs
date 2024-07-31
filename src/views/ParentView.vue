@@ -8,16 +8,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
 import CheckView from './CheckView.vue'
 
-    const showChildComponent = ref(true);
+const showChildComponent = ref(true)
 
-    const toggleChildComponent = () => {
-      showChildComponent.value = !showChildComponent.value;
-    };
-
- 
-
-
+const toggleChildComponent = () => {  
+  showChildComponent.value = !showChildComponent.value
+}
 </script>
