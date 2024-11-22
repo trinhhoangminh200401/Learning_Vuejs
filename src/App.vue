@@ -5,38 +5,38 @@ import AboutView from './views/AboutView.vue'
 import CheckView from './views/CheckView.vue'
 import ParentView from './views/ParentView.vue'
 import RefView from './views/RefView.vue'
+import TodoItem from './components/TodoItem.vue'
 // const isActive = ref(true)
-// const newTodo = ref('')
-// const age = ref(0)
-// const todos = ref([
-//   {
-//     id: 1,
-//     age: 23,
-//     name: 'Minh'
-//   },
-//   {
-//     id: 2,
-//     age: 24,
-//     name: 'Mark'
-//   }
-// ])
-// const addTodo = () => {
-//   if (newTodo.value.trim() === '') return
-//   else {
-//     const todo = {
-//       id: todos.value.length + 1,
-//       age: age.value++,
-//       name: newTodo.value
-//     }
-//     if (todo.name == '') {
-//       return []
-//     }
-//     console.log(todo)
-//     todos.value.push(todo)
+const newTodo = ref('')
+const age = ref(0)
+const todos = ref([
+  {
+    id: 1,
+    age: 23,
+    name: 'Minh'
+  },
+  {
+    id: 2,
+    age: 24,
+    name: 'Mark'
+  }
+])
+const addTodo = () => {
+  if (newTodo.value.trim() === '') return
+  else {
+    const todo = {
+      id: todos.value.length + 1,
+      age: age.value++,
+      name: newTodo.value
+    }
+    if (todo.name == '') {
+      return []
+    }
+    todos.value=[...todos.value,todo]
 
-//     newTodo.value = ''
-//   }
-// }
+    newTodo.value = ''
+  }
+}
 const isActive = ref(false)
 const handleCLickButton = () => {
   isActive.value = !isActive.value
@@ -45,15 +45,18 @@ const handleCLickButton = () => {
 
 <template>
   <div>
-    <!-- <input type="text" v-model="newTodo" @keyup.enter="addTodo" />
+     <input type="text" v-model="newTodo" @keyup.enter="addTodo" />
     <ul>
-      <li v-for="todo in todos" :key="todo.id">{{ todo.name }}</li>
-    </ul> -->
+      <TodoItem v-for="todo in todos" :id=todo.id  :name=todo.name :age=todo.age />
+      
+      </ul> 
   </div>
-  <button @click="handleCLickButton">Toggle</button>
-  <RefView firstName="minh" lastName="nnn" :isActive="isActive" />
 
-  <ParentView />
+
+  <!-- <button @click="handleCLickButton">Toggle</button>
+  <RefView firstName="minh" lastName="nnn" :isActive="isActive" />-->
+
+ <!-- <ParentView /> -->
 </template>
 
 <style>

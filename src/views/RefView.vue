@@ -18,7 +18,7 @@ onMounted(() => console.log(itemRefs.value))
 
 <template>
   <ul>
-    <li v-for="item in list" ref="itemRefs">
+    <li v-for="item in list"  class="actibe" ref="itemRefs">
       {{ item.id }}
     </li>
     {{ isActive ? `${firstName} ${lastName}` : 'Toggle is delete' }}        

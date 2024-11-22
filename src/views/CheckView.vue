@@ -10,6 +10,8 @@ import { ref, onMounted, onUnmounted } from 'vue';
  
     const message = ref('Hello from Child Component!');
 
+  
+
     onMounted(() => {
       console.log('ChildComponent has been mounted!');
     });
